@@ -1,0 +1,14 @@
+# Use an official SQLite image
+FROM sqlite:latest
+
+# Copy your SQLite database file to the container
+COPY ./titanic.db /var/lib/sqlite/
+
+# Set the working directory
+WORKDIR /var/lib/sqlite/
+
+# Expose SQLite port
+EXPOSE 3306
+
+# Run SQLite
+CMD ["sqlite3", "titanic.db"]
